@@ -1,0 +1,5 @@
+<library path="lib/libfocbox_unity_driver_nodelet">
+  <class type="focbox_unity_driver::FocboxDriverNodelet" base_class_type="nodelet::Nodelet">
+    <description>FOCBOX Unity motor controller interface nodelet.</description>
+  </class>
+</library>

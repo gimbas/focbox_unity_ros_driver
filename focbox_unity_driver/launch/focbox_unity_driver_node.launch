@@ -1,0 +1,20 @@
+<!-- -*- mode: XML -*- -->
+<launch>
+
+  <arg name="node_name" default="focbox_unity_driver_node" />
+
+  <!-- Optionally launch in GDB, for debugging -->
+  <arg name="debug" default="false" />
+  <arg if="$(arg debug)" name="launch_prefix" value="xterm -e gdb --args" />
+  <arg unless="$(arg debug)" name="launch_prefix" value="" />
+
+  <!--FOCBOX Unitydriver parameters -->
+  <arg name="port" default="/dev/ttyUSB0" />
+
+  <!--FOCBOX Unitydriver node -->
+  <node pkg="focbox_unity_driver" type="focbox_unity_driver_node" name="$(arg node_name)"
+        output="screen" launch-prefix="$(arg launch_prefix)" >
+    <param name="port" value="$(arg port)" />
+  </node>
+
+</launch>

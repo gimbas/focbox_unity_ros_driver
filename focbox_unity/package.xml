@@ -1,0 +1,27 @@
+<?xml version="1.0"?>
+<package>
+  <name>focbox_unity</name>
+  <version>0.0.1</version>
+  <description>
+    Metapackage for ROS interface to the FOCBOX Unity motor controller.
+  </description>
+
+  <maintainer email="silvagracarafael@gmail.com">Rafael Silva</maintainer>
+  <author email="silvagracarafael@gmail.com">Rafael Silva</author>
+  <license>MIT</license>
+
+  <url type="website">http://www.ros.org/wiki</url>
+  <url type="repository">https://github.com/gimbas/focbox_unity_ros_driver</url>
+  <url type="bugtracker">https://github.com/gimbas/focbox_unity_ros_driver/issues</url>
+
+  <buildtool_depend>catkin</buildtool_depend>
+
+  <run_depend>focbox_unity_driver</run_depend>
+  <run_depend>focbox_unity_msgs</run_depend>
+  <run_depend>focbox_unity_diff_layer</run_depend>
+
+  <export>
+    <metapackage/>
+  </export>
+
+</package>

@@ -1,0 +1,37 @@
+<?xml version="1.0"?>
+<package>
+  <name>focbox_unity_driver</name>
+  <version>0.0.1</version>
+  <description>
+    ROS device driver for the  FOCBOX Unity motor driver.
+  </description>
+
+  <maintainer email="silvagracarafael@gmail.com">Rafael Silva</maintainer>
+  <author email="silvagracarafael@gmail.com">Rafael Silva</author>
+  <license>MIT</license>
+
+  <url type="website">http://www.ros.org/wiki</url>
+  <url type="repository">https://github.com/gimbas/focbox_unity_ros_driver</url>
+  <url type="bugtracker">https://github.com/gimbas/focbox_unity_ros_driver/issues</url>
+
+  <buildtool_depend>catkin</buildtool_depend>
+
+  <build_depend>nodelet</build_depend>
+  <build_depend>pluginlib</build_depend>
+  <build_depend>roscpp</build_depend>
+  <build_depend>std_msgs</build_depend>
+  <build_depend>focbox_unity_msgs</build_depend>
+  <build_depend>serial</build_depend>
+
+  <run_depend>nodelet</run_depend>
+  <run_depend>pluginlib</run_depend>
+  <run_depend>roscpp</run_depend>
+  <run_depend>std_msgs</run_depend>
+  <run_depend>focbox_unity_msgs</run_depend>
+  <run_depend>serial</run_depend>
+
+  <export>
+    <nodelet plugin="${prefix}/focbox_unity_driver_nodelet.xml"/>
+  </export>
+
+</package>
