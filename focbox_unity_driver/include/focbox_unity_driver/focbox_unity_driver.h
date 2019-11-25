@@ -7,6 +7,7 @@
 
 #include <ros/ros.h>
 #include <std_msgs/Float64.h>
+#include <focbox_unity_msgs/FocboxUnityCmd.h>
 #include <boost/optional.hpp>
 
 #include "focbox_unity_driver/focbox_unity_interface.h"
@@ -19,8 +20,7 @@ class FocboxUnityDriver
 {
 public:
 
-  FocboxUnityDriver(ros::NodeHandle nh,
-                    ros::NodeHandle private_nh);
+  FocboxUnityDriver(ros::NodeHandle nh, ros::NodeHandle private_nh);
 
 private:
   // interface to the FOCBOX
@@ -44,17 +44,10 @@ private:
   CommandLimit brake_limit_;
   CommandLimit speed_limit_;
   CommandLimit position_limit_;
-  CommandLimit servo_limit_;
 
   // ROS services
   ros::Publisher state_pub_;
-  ros::Publisher servo_sensor_pub_;
-  ros::Subscriber duty_cycle_sub_;
-  ros::Subscriber current_sub_;
-  ros::Subscriber brake_sub_;
-  ros::Subscriber speed_sub_;
-  ros::Subscriber position_sub_;
-  ros::Subscriber servo_sub_;
+  ros::Subscriber command_sub_;
   ros::Timer timer_;
 
   // driver modes (possible states)
@@ -70,12 +63,7 @@ private:
 
   // ROS callbacks
   void timerCB(const ros::TimerEvent& event);
-  void dutyCycleCB(const std_msgs::Float64::ConstPtr& duty_cycle);
-  void currentCB(const std_msgs::Float64::ConstPtr& current);
-  void brakeCB(const std_msgs::Float64::ConstPtr& brake);
-  void speedCB(const std_msgs::Float64::ConstPtr& speed);
-  void positionCB(const std_msgs::Float64::ConstPtr& position);
-  void servoCB(const std_msgs::Float64::ConstPtr& servo);
+  void commandCB(const focbox_unity_msgs::FocboxUnityCmd::ConstPtr& scommand);
 };
 
 } // namespace focbox_unity_driver

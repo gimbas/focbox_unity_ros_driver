@@ -101,25 +101,32 @@ class FocboxUnityPacketValues : public FocboxUnityPacket
 public:
   FocboxUnityPacketValues(boost::shared_ptr<FocboxUnityFrame> raw);
 
-  double v_in() const;
-  double temp_mos1() const;
-  double temp_mos2() const;
-  double temp_mos3() const;
-  double temp_mos4() const;
-  double temp_mos5() const;
-  double temp_mos6() const;
-  double temp_pcb() const;
-  double current_motor() const;
-  double current_in() const;
-  double rpm() const;
-  double duty_now() const;
-  double amp_hours() const;
-  double amp_hours_charged() const;
-  double watt_hours() const;
-  double watt_hours_charged() const;
-  double tachometer() const;
-  double tachometer_abs() const;
-  int fault_code() const;
+
+double temp_fet1() const;
+double temp_fet2() const;
+double temp_mot1() const;
+double temp_mot2() const;
+double motor_current1() const;
+double motor_current2() const;
+double current_in() const;
+double current_id1() const;
+double current_id2() const;
+double current_iq1() const;
+double current_iq2() const;
+double duty_now1() const;
+double duty_now2() const;
+double rpm1() const;
+double rpm2() const;
+double v_in() const;
+double amp_hours() const;
+double amp_hours_charged() const;
+double watt_hours() const;
+double watt_hours_charged() const;
+double tachometer1() const;
+double tachometer2() const;
+double tachometer_abs1() const;
+double tachometer_abs2() const;
+int fault_code() const;
 
 };
 
@@ -134,9 +141,7 @@ public:
 class FocboxUnityPacketSetDuty : public FocboxUnityPacket
 {
 public:
-  FocboxUnityPacketSetDuty(double duty);
-
-  //  double duty() const;
+  FocboxUnityPacketSetDuty(double duty1, double duty2);
 };
 
 /*------------------------------------------------------------------------------------------------*/
@@ -144,9 +149,7 @@ public:
 class FocboxUnityPacketSetCurrent : public FocboxUnityPacket
 {
 public:
-  FocboxUnityPacketSetCurrent(double current);
-
-  //  double current() const;
+  FocboxUnityPacketSetCurrent(double current1, double current2);
 };
 
 /*------------------------------------------------------------------------------------------------*/
@@ -154,9 +157,7 @@ public:
 class FocboxUnityPacketSetCurrentBrake : public FocboxUnityPacket
 {
 public:
-  FocboxUnityPacketSetCurrentBrake(double current_brake);
-
-  //  double current_brake() const;
+  FocboxUnityPacketSetCurrentBrake(double brake1, double brake2); //  double duty() const;
 };
 
 /*------------------------------------------------------------------------------------------------*/
@@ -164,9 +165,7 @@ public:
 class FocboxUnityPacketSetRPM : public FocboxUnityPacket
 {
 public:
-  FocboxUnityPacketSetRPM(double rpm);
-
-  //  double rpm() const;
+  FocboxUnityPacketSetRPM(double rpm1, double rpm2);
 };
 
 /*------------------------------------------------------------------------------------------------*/
@@ -174,19 +173,7 @@ public:
 class FocboxUnityPacketSetPos : public FocboxUnityPacket
 {
 public:
-  FocboxUnityPacketSetPos(double pos);
-
-  //  double pos() const;
-};
-
-/*------------------------------------------------------------------------------------------------*/
-
-class FocboxUnityPacketSetServoPos : public FocboxUnityPacket
-{
-public:
-  FocboxUnityPacketSetServoPos(double servo_pos);
-
-  //  double servo_pos() const;
+  FocboxUnityPacketSetPos(double pos1, double pos2);
 };
 
 } // namespace focbox_unity_driver

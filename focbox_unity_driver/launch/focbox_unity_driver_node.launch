@@ -9,7 +9,7 @@
   <arg unless="$(arg debug)" name="launch_prefix" value="" />
 
   <!--FOCBOX Unitydriver parameters -->
-  <arg name="port" default="/dev/ttyUSB0" />
+  <arg name="port" default="/dev/ttyACM0" />
 
   <!--FOCBOX Unitydriver node -->
   <node pkg="focbox_unity_driver" type="focbox_unity_driver_node" name="$(arg node_name)"

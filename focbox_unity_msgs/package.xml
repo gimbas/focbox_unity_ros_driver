@@ -3,7 +3,7 @@
   <name>focbox_unity_msgs</name>
   <version>0.0.1</version>
   <description>
-    ROS message definitions for the FOCBOX Unity open source motor controller.
+    ROS message definitions for the FOCBOX Unity motor controller.
   </description>
 
   <maintainer email="silvagracarafael@gmail.com">Rafael Silva</maintainer>

@@ -167,7 +167,7 @@ void FocboxUnityInterface::connect(const std::string& port)
     impl_->serial_.setPort(port);
     impl_->serial_.open();
   }
-  catch(const std::exception& e) 
+  catch(const std::exception& e)
   {
       std::stringstream ss;
       ss << "Failed to open the serial port to the FOCBOX. " << e.what();
@@ -183,8 +183,6 @@ void FocboxUnityInterface::connect(const std::string& port)
 
 void FocboxUnityInterface::disconnect()
 {
-  // todo - mutex?
-
   if (isConnected())
   {
     // bring down read thread
@@ -222,34 +220,29 @@ void FocboxUnityInterface::requestState()
   send(FocboxUnityPacketRequestValues());
 }
 
-void FocboxUnityInterface::setDutyCycle(double duty_cycle)
+void FocboxUnityInterface::setDutyCycle(double duty_cycle1, double duty_cycle2)
 {
-  send(FocboxUnityPacketSetDuty(duty_cycle));
+  send(FocboxUnityPacketSetDuty(duty_cycle1, duty_cycle2));
 }
 
-void FocboxUnityInterface::setCurrent(double current)
+void FocboxUnityInterface::setCurrent(double current1, double current2)
 {
-  send(FocboxUnityPacketSetCurrent(current));
+  send(FocboxUnityPacketSetCurrent(current1, current2));
 }
 
-void FocboxUnityInterface::setBrake(double brake)
+void FocboxUnityInterface::setBrake(double brake1, double brake2)
 {
-  send(FocboxUnityPacketSetCurrentBrake(brake));
+  send(FocboxUnityPacketSetCurrentBrake(brake1, brake2));
 }
 
-void FocboxUnityInterface::setSpeed(double speed)
+void FocboxUnityInterface::setSpeed(double speed1, double speed2)
 {
-  send(FocboxUnityPacketSetRPM(speed));
+  send(FocboxUnityPacketSetRPM(speed1, speed2));
 }
 
-void FocboxUnityInterface::setPosition(double position)
+void FocboxUnityInterface::setPosition(double position1, double position2)
 {
-  send(FocboxUnityPacketSetPos(position));
-}
-
-void FocboxUnityInterface::setServo(double servo)
-{
-  send(FocboxUnityPacketSetServoPos(servo));
+  send(FocboxUnityPacketSetPos(position1, position2));
 }
 
 } // namespace focbox_unity_driver

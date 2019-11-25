@@ -1,4 +1,4 @@
-# TimestampedFOCBOX Unityopen source motor controller state (telemetry)
+# Timestamped FOCBOX Unity motor controller state (telemetry)
 
 Header  header
 FocboxUnityState state
